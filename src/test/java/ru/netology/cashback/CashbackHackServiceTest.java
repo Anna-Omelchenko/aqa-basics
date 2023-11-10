@@ -13,6 +13,15 @@ public class CashbackHackServiceTest {
     }
 
     @Test
+    public void testEdgeCases() {
+        CashbackHackService service = new CashbackHackService();
+        Assert.assertEquals(service.remain(3999), 1);
+        Assert.assertEquals(service.remain(999), 1);
+        Assert.assertEquals(service.remain(4001), 999);
+        Assert.assertEquals(service.remain(1), 999);
+    }
+
+    @Test
     public void testRoundAmount() {
         CashbackHackService service = new CashbackHackService();
         Assert.assertEquals(service.remain(1000), 0);
